@@ -47,6 +47,7 @@
 <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
+<h1 align="center">В этом файле производим изменения!!!</h1>
 <nav id="top">
   <div class="container">
     <?php echo $currency; ?>
