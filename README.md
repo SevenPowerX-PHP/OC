@@ -11,3 +11,4 @@
   - [Часть 1. Создание темы Styletour на OpenCart]()
       - [Введение. Организационные вопросы](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_1.html)
       - [Установка OpenCart](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_2.html)
+      - [Структура темы OpenCart](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_3.html)
