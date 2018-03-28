@@ -40,7 +40,7 @@ class ModelExtensionPaymentOcstorePayeer extends Model {
         $method_data = array();
 
         if ($status) {
-            $server = isset($this->request->server['HTTPS']) && $this->request->server['HTTPS'] ? $this->config->get('config_ssl') : $this->config->get('config_url');
+            $server = isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')) ? $this->config->get('config_ssl') : $this->config->get('config_url');
 
             $title = $this->config->get('ocstore_payeer_langdata');
             $method_data = array(
@@ -79,7 +79,7 @@ class ModelExtensionPaymentOcstorePayeer extends Model {
 
     protected function isLaterpayButtonLK($order_id) {
         //Laterpay Button LK Enabled?
-        if ($this->config->get('ocstore_payeer_laterpay_button_lk')) {
+        if ($this->config->get('ocstore_payeer_laterpay_button_lk') || !$this->config->get('ocstore_payeer_laterpay_mode')) {
             if (!isset($this->_order_info)) {
                 $this->_order_info = $this->getOrder($order_id);
             }

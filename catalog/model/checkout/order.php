@@ -264,7 +264,7 @@ class ModelCheckoutOrder extends Model {
 					if ($this->config->get($extension['code'] . '_status')) {
 						$this->load->model('extension/fraud/' . $extension['code']);
 
-						$fraud_status_id = $this->{'model_fraud_' . $extension['code']}->check($order_info);
+						$fraud_status_id = $this->{'model_extension_fraud_' . $extension['code']}->check($order_info);
 
 						if ($fraud_status_id) {
 							$order_status_id = $fraud_status_id;
@@ -768,8 +768,6 @@ class ModelCheckoutOrder extends Model {
 							array($order_id, date('d.m.Y'), date('H:i'), floatval($order_info['total']), $order_info['telephone']),
 							$this->config->get('config_sms_message'))
 					);
-
-					$this->load->library('sms');
 
 					$sms = new Sms($this->config->get('config_sms_gatename'), $options);
 					$sms->send();

@@ -15,14 +15,14 @@ class ControllerCommonFileManager extends Controller {
 		$this->load->language('common/filemanager');
 
 		// Find which protocol to use to pass the full image link back
-		if ($this->request->server['HTTPS']) {
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
 			$server = HTTPS_CATALOG;
 		} else {
 			$server = HTTP_CATALOG;
 		}
 
 		if (isset($this->request->get['filter_name'])) {
-			$filter_name = rtrim(str_replace('*', '', $this->request->get['filter_name']), '/');
+			$filter_name = rtrim(str_replace(array('*', '/'), '', $this->request->get['filter_name']), '/');
 		} else {
 			$filter_name = null;
 		}
@@ -30,8 +30,8 @@ class ControllerCommonFileManager extends Controller {
 		// Save current directory
 		if (!isset($this->request->get['directory'])) {
 			if (!isset($this->request->get['parent'])) { //New call Filemanager
-				$this->request->get['directory'] = isset($this->request->cookie['file_manager']['directory']) ? $this->request->cookie['file_manager']['directory'] : null;
-				$this->request->get['page'] = isset($this->request->cookie['file_manager']['page']) ? $this->request->cookie['file_manager']['page'] : null;
+				$this->request->get['directory'] = isset($this->request->cookie['file_manager']['directory']) ? $this->request->cookie['file_manager']['directory'] : '';
+				$this->request->get['page'] = isset($this->request->cookie['file_manager']['page']) ? $this->request->cookie['file_manager']['page'] : 1;
 			} else { // Trying to go back to the root directory, delete cookies
 				setcookie('file_manager[directory]', '', time() - 3600, '/', $this->request->server['HTTP_HOST']);
 				setcookie('file_manager[page]', '', time() - 3600, '/', $this->request->server['HTTP_HOST']);
@@ -61,7 +61,7 @@ class ControllerCommonFileManager extends Controller {
 
 		$this->load->model('tool/image');
 
-		if (substr(str_replace('\\', '/', realpath($directory . '/' . $filter_name)), 0, strlen(DIR_IMAGE . 'catalog')) == DIR_IMAGE . 'catalog') {
+		if (substr(str_replace('\\', '/', realpath($directory) . '/' . $filter_name), 0, strlen(DIR_IMAGE . 'catalog')) == DIR_IMAGE . 'catalog') {
 			// Get directories
 			$directories = glob($directory . '/' . $filter_name . '*', GLOB_ONLYDIR);
 

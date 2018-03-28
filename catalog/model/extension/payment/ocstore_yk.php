@@ -94,7 +94,7 @@ class ModelExtensionPaymentOcstoreYk extends Model {
 
     protected function isLaterpayButtonLK($order_info) {
         //Laterpay Button LK Enabled?
-        if ($this->config->get('ocstore_yk_laterpay_button_lk')) {            
+        if ($this->config->get('ocstore_yk_laterpay_button_lk') && !$this->config->get('ocstore_yk_laterpay_mode')) {            
             if (!$order_info || (strpos($order_info['payment_code'], self::$_METHOD_CODE) === false) || !$this->config->get($order_info['payment_code'] . '_status')) {
                 return false;
             }
@@ -125,7 +125,7 @@ class ModelExtensionPaymentOcstoreYk extends Model {
 
         $this->load->language('extension/payment/ocstore_yk');
 
-        $server = isset($this->request->server['HTTPS']) && $this->request->server['HTTPS'] ? $this->config->get('config_ssl') : $this->config->get('config_url');
+        $server = isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')) ? $this->config->get('config_ssl') : $this->config->get('config_url');
         $path = $server . 'catalog/view/theme/default/image/payment/ocstore_yk/';
         $title = $this->config->get($method_code . '_langdata');
 

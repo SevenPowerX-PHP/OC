@@ -3,10 +3,10 @@
  * Платежная система Wallet One (Единая касса)
  * 
  * @cms       ocStore 2.3
- * @author    OcTeam
- * @support   https://opencartforum.com/user/3463-shoputils
+ * @author    ocStore Team
+ * @support   https://opencartforum.com/profile/3463-shoputils
  * @version   1.0
- * @copyright  Copyright (c) 2016 OcTeam (http://myopencart.com , http://opencartforum.com)
+ * @copyright  Copyright (c) 2016 ocStore Team (https://myopencart.com , https://opencartforum.com)
  */
 class ControllerExtensionPaymentOcstoreW1 extends Controller {
 	private $error = array();
@@ -120,7 +120,7 @@ class ControllerExtensionPaymentOcstoreW1 extends Controller {
 		$this->load->model('localisation/currency');
 		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
 		
-		$server = isset($this->request->server['HTTPS']) && $this->request->server['HTTPS'] ? HTTPS_CATALOG : HTTP_CATALOG;
+		$server = isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')) ? HTTPS_CATALOG : HTTP_CATALOG;
 
 		$data['ocstore_w1_result_url'] = $server . 'index.php?route=extension/payment/ocstore_w1/callback';
 		
