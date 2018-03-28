@@ -12,3 +12,4 @@
       - [Введение. Организационные вопросы](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_1.html)
       - [Установка OpenCart](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_2.html)
       - [Структура темы OpenCart](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_3.html)
+      - [Перенос шаблона в структуру темы](file:///C:/Users/User/Downloads/opencart/videokurs/part1/part1_4.html)
