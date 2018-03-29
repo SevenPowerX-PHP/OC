@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+    <base href="<?= $base?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Styletour</title>
+  <title><?=$title?></title>
+    <meta name="description" content="<?= $description?>">
+    <meta name="keywords" content="<?= $keywords?>">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href="catalog/view/theme/styletour/css/bootstrap.min.css" rel="stylesheet">
 
