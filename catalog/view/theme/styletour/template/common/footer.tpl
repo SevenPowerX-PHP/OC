@@ -109,11 +109,5 @@
         </div>
     </div><!-- /.footer-copyright -->
 </footer>
-
-
-<script src="catalog/view/theme/styletour/js/modernizr.custom.17475.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="catalog/view/theme/styletour/js/bootstrap.min.js"></script>
-<script src="catalog/view/theme/styletour/js/scripts.js"></script>
 </body>
 </html>
