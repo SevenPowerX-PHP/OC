@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<base href="<?= $base?>">
+	<base href="<?= $base ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?=$title?></title>
-	<meta name="description" content="<?= $description?>">
-	<meta name="keywords" content="<?= $keywords?>">
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>">
+	<meta name="keywords" content="<?= $keywords ?>">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400,300&subset=latin,cyrillic' rel='stylesheet'
 	      type='text/css'>
 	<link href="catalog/view/theme/styletour/css/bootstrap.min.css" rel="stylesheet">
@@ -17,15 +17,15 @@
 	<script src="catalog/view/theme/styletour/js/bootstrap.min.js"></script>
 	<script src="/catalog/view/theme/styletour/js/common.js"></script>
 	<script src="catalog/view/theme/styletour/js/scripts.js"></script>
-	<?php foreach($links as $link): ?>
-		<link rel="<?= $link['rel']?>" href="<?= $link['href']?>">
-	<?php endforeach;  ?>
-	<?php foreach($styles as $style): ?>
-		<link rel="<?= $style['rel']?>" href="<?= $style['href']?>" type="text/css" media="<?= $style['media']?>">
-	<?php endforeach;  ?>
-	<?php foreach($scripts as $script): ?>
-		<script src="<?= $script?>"></script>
-	<?php endforeach;  ?>
+	<?php foreach ($links as $link): ?>
+		<link rel="<?= $link['rel'] ?>" href="<?= $link['href'] ?>">
+	<?php endforeach; ?>
+	<?php foreach ($styles as $style): ?>
+		<link rel="<?= $style['rel'] ?>" href="<?= $style['href'] ?>" type="text/css" media="<?= $style['media'] ?>">
+	<?php endforeach; ?>
+	<?php foreach ($scripts as $script): ?>
+		<script src="<?= $script ?>"></script>
+	<?php endforeach; ?>
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -54,32 +54,32 @@
 						<li><a href="#">Support</a></li>
 						<li><a href="#">Free Shipping Over $50</a></li>
 						<li><a href="#">Articles</a></li>
-						<?= $language?><?= $currency?>
+						<?= $language ?><?= $currency ?>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<?php if($logged):?>
+						<?php if ($logged): ?>
 							<li class="dropdown">
-								<a href="<?= $action?>" class="dropdown-toggle" data-toggle="dropdown">
-									<?= $text_account?><span class="caret"></span>
+								<a href="<?= $action ?>" class="dropdown-toggle" data-toggle="dropdown">
+									<?= $text_account ?><span class="caret"></span>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="<?= $account;?>"><?= $text_account?></a></li>
-									<li><a href="<?= $order;?>"><?= $text_order?></a></li>
-									<li><a href="<?= $transaction;?>"><?= $text_transaction?></a></li>
-									<li><a href="<?= $download;?>"><?= $text_download?></a></li>
-									<li><a href="<?= $logout;?>"><?= $text_logout?></a></li>
+									<li><a href="<?= $account; ?>"><?= $text_account ?></a></li>
+									<li><a href="<?= $order; ?>"><?= $text_order ?></a></li>
+									<li><a href="<?= $transaction; ?>"><?= $text_transaction ?></a></li>
+									<li><a href="<?= $download; ?>"><?= $text_download ?></a></li>
+									<li><a href="<?= $logout; ?>"><?= $text_logout ?></a></li>
 								</ul>
 
 							</li>
 						<?php else: ?>
-							<li><a href="<?= $login?>"><?= $text_login?></a></li>
-							<li><a href="<?= $register?>"><?= $text_register?></a></li>
+							<li><a href="<?= $login ?>"><?= $text_login ?></a></li>
+							<li><a href="<?= $register ?>"><?= $text_register ?></a></li>
 						<?php endif; ?>
 
 
 						<li>
-							<?= $cart?>
+							<?= $cart ?>
 							<!--<a href="#" class="btn-red"><span class="glyphicon glyphicon-shopping-cart"></span>
 								shopping cart
 							</a>-->
@@ -103,19 +103,55 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#"><img src="catalog/view/theme/styletour/img//logo.png"
-							                                      alt="StyleTour"><span>StyleTour</span></a>
+							<a class="navbar-brand" href="<?= $home ?>"><img src="<?= $logo ?>"
+							                                                 alt="<?= $name ?>"><span><?= $name ?></span></a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="main-menu">
 							<ul class="nav navbar-nav">
-								<li><a href="#">Shop</a></li>
+								<?php foreach ($categories as $category): ?>
+									<?php if ($category['children']): ?>
+										<li class="dropdown">
+											<a href="<?= $category['href'] ?>" class="dropdown-toggle"
+											   data-toggle="dropdown">
+												<?= $category['name'] ?>
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<?php foreach ($category['children'] as $child): ?>
+													<li>
+														<a href="<?= $child['href'] ?>">
+															<?= $child['name'] ?>
+														</a>
+													</li>
+
+												<?php endforeach; ?>
+												<li role="separator" class="divider"></li>
+												<li>
+													<a href="<?= $category['href']; ?>" class="see-all">
+														<?= $text_all ?>
+														<?= $category['name']; ?>
+													</a>
+												</li>
+											</ul>
+
+										</li>
+									<?php else: ?>
+										<li>
+											<a href="<?= $category['href'] ?>">
+												<?= $category['name'] ?>
+											</a>
+										</li>
+									<?php endif; ?>
+								<?php endforeach; ?>
+
+								<!--<li><a href="#">Shop</a></li>
 								<li><a href="#">Men</a></li>
 								<li><a href="#">Women</a></li>
 								<li><a href="#">Kids</a></li>
 								<li><a href="#">Accessories</a></li>
-								<li><a href="#">Sale</a></li>
+								<li><a href="#">Sale</a></li>-->
 							</ul>
 
 							<div class="nav navbar-nav navbar-right">

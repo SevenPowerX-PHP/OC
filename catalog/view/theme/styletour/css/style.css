@@ -511,6 +511,11 @@ section.menu-carousel{
 .dropdown-menu li a img{
 	margin-right: 10px;
 }
+span.glyphicon-shopping-cart{
+	margin-right: 5px;
+}
+
+
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
 	.menu-top .navbar-nav,
