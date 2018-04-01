@@ -33,7 +33,7 @@ $(document).ready(function() {
 	});
 
 	// Currency
-	$('#form-currency .currency-select').on('click', function(e) {
+	$('#form-currency a').on('click', function(e) {
 		e.preventDefault();
 
 		$('#form-currency input[name=\'code\']').val($(this).attr('name'));
