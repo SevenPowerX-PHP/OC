@@ -105,3 +105,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /system/storage/cache
+/system/storage/logs/
