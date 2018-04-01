@@ -54,35 +54,30 @@
 						<li><a href="#">Support</a></li>
 						<li><a href="#">Free Shipping Over $50</a></li>
 						<li><a href="#">Articles</a></li>
-						<?= $language?>
-						<?= $currency?>
-						<!--<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="flag"><img
-											src="catalog/view/theme/styletour/img//flag.jpg" alt=""></span>English <span
-										class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">France</a></li>
-								<li><a href="#">Russia</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">currecy: usd <span
-										class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">currecy: eur</a></li>
-								<li><a href="#">currecy: rur</a></li>
-							</ul>
-						</li> -->
+						<?= $language?><?= $currency?>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Signup</a></li>
+						<?php if($logged):?>
+							<li class="dropdown">
+								<a href="<?= $action?>" class="dropdown-toggle" data-toggle="dropdown">
+									<?= $text_account?><span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="<?= $account;?>"><?= $text_account?></a></li>
+									<li><a href="<?= $order;?>"><?= $text_order?></a></li>
+									<li><a href="<?= $transaction;?>"><?= $text_transaction?></a></li>
+									<li><a href="<?= $download;?>"><?= $text_download?></a></li>
+									<li><a href="<?= $logout;?>"><?= $text_logout?></a></li>
+								</ul>
+
+							</li>
+						<?php else: ?>
+							<li><a href="<?= $login?>"><?= $text_login?></a></li>
+							<li><a href="<?= $register?>"><?= $text_register?></a></li>
+						<?php endif; ?>
+
+
 						<li><a href="#" class="btn-red"><span class="glyphicon glyphicon-shopping-cart"></span>shopping
 								cart</a></li>
 					</ul>
