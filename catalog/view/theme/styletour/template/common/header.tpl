@@ -78,8 +78,12 @@
 						<?php endif; ?>
 
 
-						<li><a href="#" class="btn-red"><span class="glyphicon glyphicon-shopping-cart"></span>shopping
-								cart</a></li>
+						<li>
+							<?= $cart?>
+							<!--<a href="#" class="btn-red"><span class="glyphicon glyphicon-shopping-cart"></span>
+								shopping cart
+							</a>-->
+						</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
