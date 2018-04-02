@@ -65,8 +65,9 @@ h3{
 .main-menu .navbar-inverse{
 	background: transparent;
 	border: none;
+	margin-top: 15px;
 }
-.main-menu{
+.common-home .main-menu{
 	position: absolute;
 	z-index: 21;
 	width: 100%;
@@ -514,7 +515,9 @@ section.menu-carousel{
 span.glyphicon-shopping-cart{
 	margin-right: 5px;
 }
-
+.main-menu .navbar-brand span:not(.common-home) {
+	padding-left: 25px;
+}
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
