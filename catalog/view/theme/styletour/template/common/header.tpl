@@ -31,7 +31,7 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body class="<?= $class ?>">
 
 <header>
 	<div class="menu-top">
@@ -103,8 +103,12 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="<?= $home ?>"><img src="<?= $logo ?>"
-							                                                 alt="<?= $name ?>"><span><?= $name ?></span></a>
+							<a class="navbar-brand" href="<?= $home ?>">
+								<?php if ($home == $og_url): ?>
+									<img src="<?= $logo ?>" alt="<?= $name ?>">
+								<?php endif; ?>
+								<span class="<?= $class ?>"><?= $name ?></span>
+							</a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -166,7 +170,6 @@
 		</div><!-- /.main-menu -->
 	</div><!-- /.main-menu-wrap -->
 </header>
-
 
 
 <!--<section class="main-slogan">
