@@ -15,3 +15,4 @@
 2018-04-01 21:05:00 - PHP Notice:  Undefined variable: action in C:\OSPanel\domains\oc.loc\catalog\view\theme\styletour\template\common\header.tpl on line 63
 2018-04-02 0:58:59 - PHP Notice:  Undefined variable: banner in C:\OSPanel\domains\oc.loc\catalog\view\theme\styletour\template\extension\module\slideshow.tpl on line 6
 2018-04-02 1:20:14 - PHP Notice:  Undefined variable: baner in C:\OSPanel\domains\oc.loc\catalog\view\theme\styletour\template\extension\module\slideshow.tpl on line 25
+2018-04-02 16:51:13 - PHP Notice:  Undefined variable: heding_title in C:\OSPanel\domains\oc.loc\catalog\view\theme\styletour\template\extension\module\category.tpl on line 3

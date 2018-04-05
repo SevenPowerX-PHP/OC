@@ -115,6 +115,9 @@
 						<div class="collapse navbar-collapse" id="main-menu">
 							<ul class="nav navbar-nav">
 								<?php foreach ($categories as $category): ?>
+									<?php
+									var_dump($category);
+									?>
 									<?php if ($category['children']): ?>
 										<li class="dropdown">
 											<a href="<?= $category['href'] ?>" class="dropdown-toggle"
